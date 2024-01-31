@@ -19,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatOption, MatSelect } from "@angular/material/select";
 import { MatInputModule } from "@angular/material/input";
 import { MatDatepickerModule, MatDatepickerToggle } from "@angular/material/datepicker";
+import {MatCheckbox} from "@angular/material/checkbox";
 
 @NgModule({
   declarations: [

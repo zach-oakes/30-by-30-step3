@@ -10,7 +10,7 @@
         <div class="students-list" *ngFor="let student of students">
           <mat-action-list>
             <div class="flex-box">
-              <button mat-list-item class="student-item" (click)="selectStudent(student)">
+              <button mat-list-item class="student-item" (click)="selectStudent.emit(student)">
                 <b>Name:</b> {{ student.firstName }} {{ student.lastName }}
                 <div>
                   <b>Course:</b> {{ student.course }}
@@ -24,7 +24,7 @@
                   <b>Start Date:</b> {{ student.startDate }}
                 </div>
               </button>
-              <button class="student-item" mat-button (click)="deleteStudent(student)">X</button>
+              <button class="student-item" mat-button (click)="deleteStudent.emit(student)">X</button>
             </div>
           </mat-action-list>
         </div>

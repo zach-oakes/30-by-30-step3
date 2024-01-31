@@ -1,8 +1,8 @@
 <div class="edit-add-student-container">
   <div class="student-form">
     <div class="edit-add-form-title">
-      <div *ngIf="selectedStudent; else elseBlock">
-        Editing {{ selectedStudent.firstName }} {{ selectedStudent.lastName }}
+      <div *ngIf="selectedStudent.id; else elseBlock">
+        Edit Student
       </div>
       <ng-template #elseBlock>
         Add New Student
@@ -16,14 +16,14 @@
             <!--First Name-->
             <mat-form-field class="first-name-input">
               <mat-label>First name</mat-label>
-              <input matInput [(ngModel)]="firstName" name="first">
+              <input matInput [(ngModel)]="selectedStudent.firstName" name="first">
             </mat-form-field>
           </td>
           <td>
             <!--Last Name-->
             <mat-form-field class="last-name-input">
               <mat-label>Last Name</mat-label>
-              <input matInput [(ngModel)]="lastName" name="last">
+              <input matInput [(ngModel)]="selectedStudent.lastName" name="last">
             </mat-form-field>
           </td>
         </tr>
@@ -36,7 +36,7 @@
           color="primary"
           id="course"
           aria-label="Select Course"
-          [(ngModel)]="selectedCourse"
+          [(ngModel)]="selectedStudent.course"
           name="course"
         >
           @for (course of courses; track course) {
@@ -49,7 +49,7 @@
       <div class="teacher-select">
         <mat-form-field>
           <mat-label>Select Teacher</mat-label>
-          <mat-select [(value)]="teacher" [compareWith]="isSameTeacher">
+          <mat-select [(value)]="selectedStudent.teacher" [compareWith]="isSameTeacher">
             @for (teacher of teachers; track teacher) {
               <mat-option [value]="teacher">{{ teacher.firstName }} {{ teacher.lastName }}</mat-option>
             }
@@ -65,7 +65,7 @@
             name="startDate"
             matInput
             [matDatepicker]="picker"
-            [value]="dateObject"
+            [value]="dateStringToDate"
           >
           <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
@@ -76,10 +76,10 @@
     </form>
     <div class="spacer"></div>
     <button mat-stroked-button color="primary"
-            (click)="selectedStudent ? editStudent() : createStudent()
+            (click)="selectedStudent.id ? editStudent.emit(selectedStudent) : addStudent.emit(selectedStudent)
           " [disabled]="isButtonDisabled"
     >
-      {{ selectedStudent ? 'Edit' : 'Add' }} Student
+      {{ selectedStudent.id ? 'Edit' : 'Add' }} Student
     </button>
   </div>
 </div>

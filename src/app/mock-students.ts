@@ -2,10 +2,11 @@ import {Student} from "./student";
 import {TEACHERS} from "./mock-teachers";
 import {Teacher} from "./teacher";
 import {formatDate} from "@angular/common";
+import { v4 as uuid } from 'uuid';
 
 export const STUDENTS: Student[] = [
   {
-    id: 1,
+    id: uuid(),
     firstName: 'Bart',
     lastName: 'Simpson',
     course: 'Math',
@@ -13,7 +14,7 @@ export const STUDENTS: Student[] = [
     startDate: randomDate(),
   },
   {
-    id: 2,
+    id: uuid(),
     firstName: 'Fred',
     lastName: 'Flintstone',
     course: 'Science',
@@ -21,7 +22,7 @@ export const STUDENTS: Student[] = [
     startDate: randomDate(),
   },
   {
-    id: 3,
+    id: uuid(),
     firstName: 'Hank',
     lastName: 'Hill',
     course: 'History',
@@ -29,7 +30,7 @@ export const STUDENTS: Student[] = [
     startDate: randomDate(),
   },
   {
-    id: 4,
+    id: uuid(),
     firstName: 'Hulk',
     lastName: 'Hogan',
     course: 'Science',
@@ -37,7 +38,7 @@ export const STUDENTS: Student[] = [
     startDate: randomDate(),
   },
   {
-    id: 5,
+    id: uuid(),
     firstName: 'Mickey',
     lastName: 'Mouse',
     course: 'Math',

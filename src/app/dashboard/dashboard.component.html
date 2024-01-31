@@ -37,14 +37,16 @@
   <div class="flex-container">
     <app-student-list-view
       [students]="students"
-      (onStudentSelected)="onStudentSelected($event)"
-      [selectedStudent]="selectedStudent"
+      (deleteStudent)="deleteStudent($event)"
+      (selectStudent)="selectStudent($event)"
     >
     </app-student-list-view>
     <app-student-detail-view
-      [students]="students"
+      (addStudent)="addNewStudent($event)"
       [selectedStudent]="selectedStudent"
-      (onStudentEditedOrAdded)="onStudentSelected($event)"
+      (editStudent)="updateStudentList($event)"
+      [courses]="courses"
+      [teachers]="teachers"
     >
     </app-student-detail-view>
   </div>
