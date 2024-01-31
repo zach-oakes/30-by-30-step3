@@ -1,0 +1,36 @@
+<div class="students-container">
+    <form>
+      <div class="students-title">
+        Students Currently Enrolled: {{ students.length }}
+      </div>
+      <mat-divider></mat-divider>
+
+      <!--List of Students-->
+      <div *ngIf="students.length; else elseListBlock">
+        <div class="students-list" *ngFor="let student of students">
+          <mat-action-list>
+            <div class="flex-box">
+              <button mat-list-item class="student-item" (click)="selectStudent.emit(student)">
+                <b>Name:</b> {{ student.firstName }} {{ student.lastName }}
+                <div>
+                  <b>Course:</b> {{ student.course }}
+                </div>
+                <div>
+                  <b>Teacher:</b> {{ student.teacher.firstName }} {{ student.teacher.lastName }}
+                  <b>Grade:</b> {{ student.teacher.teachingGrade }}
+                  <b>Students:</b> {{ student.teacher.studentCount }}
+                </div>
+                <div>
+                  <b>Start Date:</b> {{ student.startDate }}
+                </div>
+              </button>
+              <button class="student-item" mat-button (click)="deleteStudent.emit(student)">X</button>
+            </div>
+          </mat-action-list>
+        </div>
+      </div>
+      <ng-template #elseListBlock>
+        <p class="else-list-block-text"> No students currently enrolled</p>
+      </ng-template>
+    </form>
+  </div>

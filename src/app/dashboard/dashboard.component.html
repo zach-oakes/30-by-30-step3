@@ -1,0 +1,53 @@
+<mat-toolbar color="primary" class="top-nav">
+  <div class="sidenav-content">
+    <button type="button" mat-button class="menu-button" (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  Developer Academy Student Enrollment
+  <div class="spacer"></div>
+  Zach's Angular App
+</mat-toolbar>
+
+<mat-drawer-container class="main-container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side">
+
+    <!--Drawer Icons-->
+    <div class="home-button">
+      <button mat-icon-button color="primary" aria-label="home icon">
+        <mat-icon>home</mat-icon>
+      </button>
+      <p>Home</p>
+    </div>
+    <div class="spacer"></div>
+    <div class="students-button">
+      <button mat-icon-button color="primary" aria-label="student icon">
+        <mat-icon>face</mat-icon>
+      </button>
+      <p>Students</p>
+    </div>
+    <div class="spacer"></div>
+    <div class="courses-button">
+      <button mat-icon-button color="primary" aria-label="courses icon">
+        <mat-icon>list</mat-icon>
+      </button>
+      <p>Courses</p>
+    </div>
+  </mat-drawer>
+  <div class="flex-container">
+    <app-student-list-view
+      [students]="students"
+      (deleteStudent)="deleteStudent($event)"
+      (selectStudent)="selectStudent($event)"
+    >
+    </app-student-list-view>
+    <app-student-detail-view
+      (addStudent)="addNewStudent($event)"
+      [selectedStudent]="selectedStudent"
+      (editStudent)="updateStudentList($event)"
+      [courses]="courses"
+      [teachers]="teachers"
+    >
+    </app-student-detail-view>
+  </div>
+</mat-drawer-container>

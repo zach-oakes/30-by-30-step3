@@ -1,0 +1,31 @@
+.students-container {
+  font-size: x-large;
+  margin-top: 1.5rem;
+  border-style: solid;
+  padding: .5rem;
+  overflow-y: scroll;
+  height: 70vh;
+  flex: 1 1 0;
+  border-radius: .5rem;
+}
+
+.else-list-block-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: medium;
+}
+
+.student-item {
+  min-height: 100px;
+  display: inline-block;
+}
+
+.students-title {
+  margin-bottom: 1rem;
+}
+
+.flex-box {
+  display: flex;
+}
+
